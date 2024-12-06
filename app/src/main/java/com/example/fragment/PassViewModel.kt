@@ -14,7 +14,11 @@ class PassViewModel(private val repository: PassItemRepository):ViewModel() {
     fun addPassItem(newPass: PassItem) = viewModelScope.launch {
         repository.insertPassItem(newPass)
     }
-
+    fun insertPassItem(passItem: PassItem) {
+        viewModelScope.launch {
+            repository.insertPassItem(passItem)
+        }
+    }
     fun updatePassItem(passItem: PassItem) = viewModelScope.launch {
         repository.updatePassItem(passItem)
     }

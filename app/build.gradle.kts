@@ -1,4 +1,5 @@
 plugins {
+    id("kotlin-kapt") // Добавляем KAPT для обработки аннотаций id 'org.jetbrains.kotlin.plugin.serialization' version '1.8.10' // Если нужно использование Kotlin Serialization
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
@@ -57,6 +58,10 @@ dependencies {
     implementation("com.google.android.material:material:1.9.0")
     implementation(libs.androidx.room.common)
     implementation(libs.androidx.room.ktx) // или последняя версия
+    // Room dependencies
+    implementation("androidx.room:room-runtime:2.5.1")
+    kapt("androidx.room:room-compiler:2.5.1")
+    implementation("androidx.room:room-ktx:2.5.1")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -66,3 +71,4 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 }
+
